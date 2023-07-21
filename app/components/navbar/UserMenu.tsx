@@ -58,7 +58,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
             cursor-pointer
           "
         >
-          Airbnb your home
+          Create Expert Profile
         </div>
         <div 
         onClick={toggleOpen}
@@ -103,24 +103,21 @@ const UserMenu: React.FC<UserMenuProps> = ({
             {currentUser ? (
               <>
                 <MenuItem 
-                  label="My trips" 
+                  label="My Expert Witnesses" 
                   onClick={() => router.push('/trips')}
                 />
                 <MenuItem 
-                  label="My favorites" 
+                  label="My Favorites" 
                   onClick={() => router.push('/favorites')}
                 />
+                <hr />
                 <MenuItem 
-                  label="My reservations" 
-                  onClick={() => router.push('/reservations')}
-                />
-                <MenuItem 
-                  label="My properties" 
-                  onClick={() => router.push('/properties')}
-                />
-                <MenuItem 
-                  label="Airbnb your home" 
+                  label="Expert Witness Profile" 
                   onClick={rentModal.onOpen}
+                />
+                <MenuItem 
+                  label="My Jobs" 
+                  onClick={() => router.push('/reservations')}
                 />
                 <hr />
                 <MenuItem 
