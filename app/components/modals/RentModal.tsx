@@ -65,7 +65,7 @@ const RentModal = () => {
   const category = watch('category');
   const guestCount = watch('guestCount');
   const roomCount = watch('roomCount');
-  const bathroomCount = watch('bathroomCount');
+  const bathroomCount = 1;
   const imageSrc = watch('imageSrc');
 
   const Map = useMemo(() => dynamic(() => import('../Map'), { 
