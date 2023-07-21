@@ -23,8 +23,8 @@ const PropertiesPage = async () => {
     return (
       <ClientOnly>
         <EmptyState
-          title="No properties found"
-          subtitle="Looks like you have no properties."
+          title="No Expert Witness Profile Found"
+          subtitle="Looks like you have no expert witness profile."
         />
       </ClientOnly>
     );
