@@ -96,7 +96,7 @@ const RentModal = () => {
     
     setIsLoading(true);
 
-    axios.put('/api/listings', data)
+    axios.post('/api/listings', data)
     .then(() => {
       toast.success('Expert Profile Updated!');
       router.refresh();
@@ -105,17 +105,7 @@ const RentModal = () => {
       rentModal.onClose();
     })
     .catch(() => {
-      axios.post('/api/listings', data)
-      .then(() => {
-        toast.success('Expert Profile Created!');
-        router.refresh();
-        reset();
-        setStep(STEPS.CATEGORY)
-        rentModal.onClose();
-      })
-      .catch(() => {
       toast.error('Something went wrong.');
-      })
     })
     .finally(() => {
       setIsLoading(false);
