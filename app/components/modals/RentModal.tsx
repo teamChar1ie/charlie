@@ -55,7 +55,7 @@ const RentModal = () => {
       roomCount: 1,
       bathroomCount: 1,
       imageSrc: '',
-      price: 1,
+      price: 50,
       title: '',
       description: '',
     }
@@ -96,9 +96,9 @@ const RentModal = () => {
     
     setIsLoading(true);
 
-    axios.post('/api/listings', data)
+    axios.put('/api/listings', data)
     .then(() => {
-      toast.success('Listing created!');
+      toast.success('Expert Profile Created!');
       router.refresh();
       reset();
       setStep(STEPS.CATEGORY)
