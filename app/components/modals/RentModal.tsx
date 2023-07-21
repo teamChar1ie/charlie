@@ -55,7 +55,7 @@ const RentModal = () => {
       roomCount: 1,
       bathroomCount: 1,
       imageSrc: '',
-      price: 50,
+      price: 1,
       title: '',
       description: '',
     }
@@ -98,7 +98,7 @@ const RentModal = () => {
 
     axios.post('/api/listings', data)
     .then(() => {
-      toast.success('Expert Profile Updated!');
+      toast.success('Listing created!');
       router.refresh();
       reset();
       setStep(STEPS.CATEGORY)
@@ -194,13 +194,6 @@ const RentModal = () => {
           value={roomCount}
           title="Experience" 
           subtitle="How many years of experience do you have?"
-        />
-        <hr />
-        <Counter 
-          onChange={(value) => setCustomValue('bathroomCount', value)}
-          value={bathroomCount}
-          title="Bathrooms" 
-          subtitle="How many bathrooms do you have?"
         />
       </div>
     )

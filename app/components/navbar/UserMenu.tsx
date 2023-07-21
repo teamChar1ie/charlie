@@ -112,12 +112,8 @@ const UserMenu: React.FC<UserMenuProps> = ({
                 />
                 <hr />
                 <MenuItem 
-                  label="Edit Expert Witness Profile" 
+                  label="Expert Witness Profile" 
                   onClick={rentModal.onOpen}
-                />
-                <MenuItem 
-                  label="View Expert Witness Profile" 
-                  onClick={() => router.push('/properties')}
                 />
                 <MenuItem 
                   label="My Jobs" 
