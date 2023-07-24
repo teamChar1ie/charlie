@@ -15,18 +15,20 @@ export type CountrySelectValue = {
 interface CountrySelectProps {
   value?: CountrySelectValue;
   onChange: (value: CountrySelectValue) => void;
+  required?: boolean;
 }
 
 const CountrySelect: React.FC<CountrySelectProps> = ({
   value,
-  onChange
+  onChange,
+  required
 }) => {
   const { getAll } = useCountries();
 
   return ( 
     <div>
       <Select
-        placeholder="Anywhere"
+        placeholder="Location"
         isClearable
         options={getAll()}
         value={value}
