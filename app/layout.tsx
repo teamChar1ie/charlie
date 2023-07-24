@@ -12,6 +12,8 @@ import './globals.css'
 import ClientOnly from './components/ClientOnly';
 import getCurrentUser from './actions/getCurrentUser';
 
+import { Analytics } from '@vercel/analytics/react';
+
 export const metadata = {
   title: 'Charlie',
   description: 'Charlie expert witness platform.',
@@ -30,6 +32,7 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
+      <Analytics />
       <body className={font.className}>
         <ClientOnly>
           <ToasterProvider />
