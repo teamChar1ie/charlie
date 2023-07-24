@@ -116,6 +116,10 @@ const UserMenu: React.FC<UserMenuProps> = ({
                   onClick={rentModal.onOpen}
                 />
                 <MenuItem 
+                  label="Manage Profile" 
+                  onClick={() => router.push('/listings')}
+                />
+                <MenuItem 
                   label="My Jobs" 
                   onClick={() => router.push('/reservations')}
                 />
