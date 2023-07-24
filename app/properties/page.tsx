@@ -22,8 +22,8 @@ const PropertiesPage = async () => {
     return (
       <ClientOnly>
         <EmptyState
-          title="No properties found"
-          subtitle="Looks like you have no properties."
+          title="No profiles found"
+          subtitle="Looks like you have no profiles."
         />
       </ClientOnly>
     );
