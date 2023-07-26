@@ -34,7 +34,9 @@ const Navbar: React.FC<NavbarProps> = ({
           "
         >
           <Logo />
-          <Heading title="Hire the next vetted expert witness for your case!" />
+          <div className="text-xl font-bold">
+            Hire the next vetted expert witness for your case!
+          </div>
           <Search />
           <UserMenu currentUser={currentUser} />
         </div>
