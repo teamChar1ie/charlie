@@ -69,7 +69,7 @@ const ListingInfo: React.FC<ListingInfoProps> = ({
             {guestCount} hours/week
           </div>
           <div>
-            {roomCount} years experience
+            {roomCount} cases
           </div>
         </div>
       </div>
