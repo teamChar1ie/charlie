@@ -37,9 +37,9 @@ export async function POST(
       description,
       imageSrc,
       category,
-      roomCount,
+      roomCount: parseInt(roomCount, 10),
       bathroomCount,
-      guestCount,
+      guestCount: parseInt(guestCount, 10),
       locationValue: location.value,
       price: parseInt(price, 10),
       userId: currentUser.id
