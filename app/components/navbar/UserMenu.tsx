@@ -106,10 +106,6 @@ const UserMenu: React.FC<UserMenuProps> = ({
                   label="My Expert Witnesses" 
                   onClick={() => router.push('/trips')}
                 />
-                <MenuItem 
-                  label="My Favorites" 
-                  onClick={() => router.push('/favorites')}
-                />
                 <hr />
                 <MenuItem 
                   label="Create Expert Witness Profile" 
@@ -120,7 +116,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
                   onClick={() => router.push('/properties')}
                 />
                 <MenuItem 
-                  label="My Jobs" 
+                  label="My Current Jobs" 
                   onClick={() => router.push('/reservations')}
                 />
                 <hr />
