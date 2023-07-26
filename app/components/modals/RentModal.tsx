@@ -187,6 +187,7 @@ const RentModal = () => {
           id="roomCount"
           label="How many cases have you worked on?" 
           type="number" 
+          formatPrice
           disabled={isLoading}
           register={register}
           errors={errors}
@@ -197,6 +198,7 @@ const RentModal = () => {
           id="guestCount"
           label="How many hours per week are you available?" 
           type="number" 
+          formatPrice
           disabled={isLoading}
           register={register}
           errors={errors}
