@@ -150,8 +150,8 @@ const SearchModal = () => {
           onChange={(value) => setRoomCount(value)}
           value={roomCount}
           title="Experience" 
-          subtitle="How many years of experience do you want?"
-        />        
+          subtitle="How many cases do you want the expert witness to have worked on?"
+        />
       </div>
     )
   }
