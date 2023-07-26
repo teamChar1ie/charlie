@@ -225,8 +225,8 @@ const RentModal = () => {
     bodyContent = (
       <div className="flex flex-col gap-8">
         <Heading
-          title="Write about yourself and your qualifications"
-          subtitle="Short and sweet works best!"
+          title="Write about yourself and your domains of expertise"
+          subtitle="Short works best!"
         />
         <Input
           id="title"
@@ -239,7 +239,7 @@ const RentModal = () => {
         <hr />
         <Input
           id="description"
-          label="Your Qualifications"
+          label="Your Domains of Expertise"
           disabled={isLoading}
           register={register}
           errors={errors}
