@@ -181,20 +181,26 @@ const RentModal = () => {
       <div className="flex flex-col gap-8">
         <Heading
           title="Share some basics about you"
-          subtitle="What time commitment are you prepared for and how many years of experience do you have as an expert witness in this field?"
+          subtitle="What time commitment are you prepared for and how many cases have you worked on as an expert witness in this field?"
         />
-        <Counter 
-          onChange={(value) => setCustomValue('guestCount', value)}
-          value={guestCount}
-          title="Hours" 
-          subtitle="How many hours per week are you available?"
+        <Input
+          id="roomCount"
+          label="How many cases have you worked on?" 
+          type="number" 
+          disabled={isLoading}
+          register={register}
+          errors={errors}
+          required
         />
         <hr />
-        <Counter 
-          onChange={(value) => setCustomValue('roomCount', value)}
-          value={roomCount}
-          title="Experience" 
-          subtitle="How many years of experience do you have?"
+        <Input
+          id="guestCount"
+          label="How many hours per week are you available?" 
+          type="number" 
+          disabled={isLoading}
+          register={register}
+          errors={errors}
+          required
         />
       </div>
     )
