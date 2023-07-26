@@ -14,8 +14,8 @@ import {
   GiPlanks,
   GiWindmill
 } from 'react-icons/gi';
-import { FaSkiing } from 'react-icons/fa';
-import { BsLightbulb, BsSnow } from 'react-icons/bs';
+import { FaFileContract, FaPenFancy, FaSkiing } from 'react-icons/fa';
+import { BsLightbulb, BsRulers, BsSnow, BsTranslate } from 'react-icons/bs';
 import { IoDiamond } from 'react-icons/io5';
 import { MdComputer, MdConstruction, MdOutlineVilla } from 'react-icons/md';
 
@@ -58,6 +58,11 @@ export const categories = [
     description: 'Personal injury experts.'
   },
   {
+    label: 'Plain Legal Writing/Design',
+    icon: FaFileContract,
+    description: 'Plain legal writing experts.'
+  },
+  {
     label: 'Pollution',
     icon: TbBuildingFactory,
     description: 'Pollution experts.'
@@ -66,6 +71,16 @@ export const categories = [
     label: 'Statistics',
     icon: FcStatistics,
     description: 'Statistics experts.'
+  },
+  {
+    label: 'Translation',
+    icon: BsTranslate,
+    description: 'Translation experts.'
+  },
+  {
+    label: 'Writing/Design',
+    icon: FaPenFancy,
+    description: 'Writing and design experts.'
   }
 ]
 

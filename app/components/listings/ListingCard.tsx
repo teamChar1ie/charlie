@@ -95,7 +95,7 @@ const ListingCard: React.FC<ListingCardProps> = ({
               transition
             "
             src={data.imageSrc}
-            alt="Listing"
+            alt="Expert Witness"
           />
           <div className="
             absolute
