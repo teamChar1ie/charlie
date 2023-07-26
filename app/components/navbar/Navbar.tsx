@@ -5,6 +5,7 @@ import Container from "../Container";
 import Logo from "./Logo";
 import Search from "./Search";
 import UserMenu from "./UserMenu";
+import Heading from "../Heading";
 
 interface NavbarProps {
   currentUser?: SafeUser | null;
@@ -33,6 +34,7 @@ const Navbar: React.FC<NavbarProps> = ({
           "
         >
           <Logo />
+          <Heading title="Hire the next vetted expert witness for your case!" />
           <Search />
           <UserMenu currentUser={currentUser} />
         </div>

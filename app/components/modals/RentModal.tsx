@@ -181,7 +181,7 @@ const RentModal = () => {
       <div className="flex flex-col gap-8">
         <Heading
           title="Share some basics about you"
-          subtitle="What time commitment are you prepared for and how many years of experience do you have as an expert witness?"
+          subtitle="What time commitment are you prepared for and how many years of experience do you have as an expert witness in this field?"
         />
         <Counter 
           onChange={(value) => setCustomValue('guestCount', value)}
