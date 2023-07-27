@@ -1,11 +1,9 @@
-import countries from 'world-countries';
+import cities from "cities.json"
 
-const formattedCountries = countries.map((country) => ({
-  value: country.cca2,
-  label: country.name.common,
-  flag: country.flag,
-  latlng: country.latlng,
-  region: country.region,
+const formattedCountries = cities.map((city) => ({
+  value: city.name,
+  label: city.country,
+  latlng: [parseFloat(city.lat), parseFloat(city.lng)]
 }));
 
 const useCountries = () => {
