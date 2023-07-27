@@ -55,7 +55,7 @@ const Search = () => {
         "
       >
         <div className="text-l font-bold px-6">
-          Expert Search
+          Find Expert
         </div>
         <div 
           className="
