@@ -10,7 +10,6 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import useSearchModal from "@/app/hooks/useSearchModal";
 
 import Modal from "./Modal";
-import Calendar from "../inputs/Calendar";
 import Counter from "../inputs/Counter";
 import CountrySelect, { 
   CountrySelectValue
@@ -33,11 +32,6 @@ const SearchModal = () => {
   const [guestCount, setGuestCount] = useState(1);
   const [roomCount, setRoomCount] = useState(1);
   const [bathroomCount, setBathroomCount] = useState(1);
-  const [dateRange, setDateRange] = useState<Range>({
-    startDate: new Date(),
-    endDate: new Date(),
-    key: 'selection'
-  });
 
   const Map = useMemo(() => dynamic(() => import('../Map'), { 
     ssr: false 
@@ -70,14 +64,6 @@ const SearchModal = () => {
       bathroomCount
     };
 
-    if (dateRange.startDate) {
-      updatedQuery.startDate = formatISO(dateRange.startDate);
-    }
-
-    if (dateRange.endDate) {
-      updatedQuery.endDate = formatISO(dateRange.endDate);
-    }
-
     const url = qs.stringifyUrl({
       url: '/',
       query: updatedQuery,
@@ -94,7 +80,6 @@ const SearchModal = () => {
     router, 
     guestCount, 
     roomCount,
-    dateRange,
     onNext,
     bathroomCount,
     params

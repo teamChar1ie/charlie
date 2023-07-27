@@ -5,9 +5,9 @@ import Select from 'react-select'
 import useCountries from '@/app/hooks/useCountries';
 
 export type CountrySelectValue = {
+  value: string;
   label: string;
-  latlng: number[],
-  value: string
+  latlng: number[]
 }
 
 interface CountrySelectProps {
