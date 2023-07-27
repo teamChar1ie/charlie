@@ -1,10 +1,16 @@
 import cities from "cities.json"
 
-const formattedCountries = cities.map((city) => ({
-  value: city.name,
-  label: city.country,
-  latlng: [parseFloat(city.lat), parseFloat(city.lng)]
-}));
+const formattedCountries = cities.map((city : {
+                                                name: string;
+                                                lat: string;
+                                                lng: string;
+                                                state: string;
+                                              }
+  ) => ({
+    value: city.name,
+    label: city.state,
+    latlng: [city.lat, city.lng]
+  }));
 
 const useCountries = () => {
   const getAll = () => formattedCountries;
