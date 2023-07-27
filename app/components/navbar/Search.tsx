@@ -54,7 +54,7 @@ const Search = () => {
           justify-between
         "
       >
-        <div className="text-l font-bold">
+        <div className="text-l font-bold px-6">
           Expert Search
         </div>
         <div 
