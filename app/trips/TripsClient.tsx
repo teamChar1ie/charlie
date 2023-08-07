@@ -39,21 +39,6 @@ const TripsClient: React.FC<TripsClientProps> = ({
     })
   }, [router]);
 
-  const onReview = useCallback((id: string) => {
-
-    axios.delete(`/api/reservations/${id}`)
-    .then(() => {
-      toast.success('Reservation cancelled');
-      router.refresh();
-    })
-    .catch(() => {
-      toast.error('Something went wrong.')
-    })
-    .finally(() => {
-      setDeletingId('');
-    })
-  }, [router]);
-
   return (
     <Container>
       <Heading
