@@ -39,6 +39,21 @@ const ReservationsClient: React.FC<ReservationsClientProps> = ({
     })
   }, [router]);
 
+  const onReview = useCallback((id: string) => {
+
+    axios.delete(`/api/reservations/${id}`)
+    .then(() => {
+      toast.success('Reservation cancelled');
+      router.refresh();
+    })
+    .catch(() => {
+      toast.error('Something went wrong.')
+    })
+    .finally(() => {
+      setDeletingId('');
+    })
+  }, [router]);
+
   return (
     <Container>
       <Heading
@@ -64,9 +79,12 @@ const ReservationsClient: React.FC<ReservationsClientProps> = ({
             data={reservation.listing}
             reservation={reservation}
             actionId={reservation.id}
+            actionId2={reservation.id}
             onAction={onCancel}
+            onAction2={onReview}
             disabled={deletingId === reservation.id}
             actionLabel="Cancel job"
+            actionLabel2="Leave Review"
             currentUser={currentUser}
           />
         ))}
