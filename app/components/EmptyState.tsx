@@ -38,15 +38,19 @@ const EmptyState: React.FC<EmptyStateProps> = ({
         subtitle={subtitle}
       />
       <div className="w-48 mt-4">
+        {showReset && (
+          <Button
+            outline
+            label="Remove all filters"
+            onClick={() => router.push('/')}
+          />
+        )}
+      </div>
+      <div className="w-48 mt-4">
         <ClientOnly>
-            <ToasterProvider />
-            <RequestExpertModal />
-            <Button
-              outline
-              label="Remove all filters"
-              onClick={() => router.push('/')}
-            />
-          </ClientOnly>
+          <ToasterProvider />
+          <RequestExpertModal />
+        </ClientOnly>
       </div>
     </div>
    );
