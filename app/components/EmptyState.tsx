@@ -38,8 +38,7 @@ const EmptyState: React.FC<EmptyStateProps> = ({
         subtitle={subtitle}
       />
       <div className="w-48 mt-4">
-        {showReset && (
-          <ClientOnly>
+        <ClientOnly>
             <ToasterProvider />
             <RequestExpertModal />
             <Button
@@ -48,7 +47,6 @@ const EmptyState: React.FC<EmptyStateProps> = ({
               onClick={() => router.push('/')}
             />
           </ClientOnly>
-        )}
       </div>
     </div>
    );
