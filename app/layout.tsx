@@ -13,6 +13,7 @@ import ClientOnly from './components/ClientOnly';
 import getCurrentUser from './actions/getCurrentUser';
 
 import { Analytics } from '@vercel/analytics/react';
+import RequestExpertModal from './components/modals/RequestExpertModal';
 
 export const metadata = {
   title: 'Charlie',
@@ -39,6 +40,7 @@ export default async function RootLayout({
           <LoginModal />
           <RegisterModal />
           <SearchModal />
+          <RequestExpertModal />
           <RentModal />
           <Navbar currentUser={currentUser} />
         </ClientOnly>

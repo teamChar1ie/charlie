@@ -46,12 +46,6 @@ const EmptyState: React.FC<EmptyStateProps> = ({
           />
         )}
       </div>
-      <div className="w-48 mt-4">
-        <ClientOnly>
-          <ToasterProvider />
-          <RequestExpertModal />
-        </ClientOnly>
-      </div>
     </div>
    );
 }
