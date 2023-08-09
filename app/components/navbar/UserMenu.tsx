@@ -12,6 +12,8 @@ import { SafeUser } from "@/app/types";
 
 import MenuItem from "./MenuItem";
 import Avatar from "../Avatar";
+import RequestExpertModal from "../modals/RequestExpertModal";
+import useRequestExpertModal from "@/app/hooks/useRequestExpertModal";
 
 interface UserMenuProps {
   currentUser?: SafeUser | null
@@ -25,12 +27,21 @@ const UserMenu: React.FC<UserMenuProps> = ({
   const loginModal = useLoginModal();
   const registerModal = useRegisterModal();
   const rentModal = useRentModal();
+  const requestExpertModal = useRequestExpertModal();
 
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleOpen = useCallback(() => {
     setIsOpen((value) => !value);
   }, []);
+
+  const onRequest = useCallback(() => {
+    if (!currentUser) {
+      return loginModal.onOpen();
+    }
+
+    requestExpertModal.onOpen();
+  }, [loginModal, requestExpertModal, currentUser]);
 
   const onRent = useCallback(() => {
     if (!currentUser) {
@@ -43,6 +54,23 @@ const UserMenu: React.FC<UserMenuProps> = ({
   return ( 
     <div className="relative">
       <div className="flex flex-row items-center gap-3">
+        <div 
+          onClick={onRequest}
+          className="
+            hidden
+            md:block
+            text-sm 
+            font-semibold 
+            py-3 
+            px-4 
+            rounded-full 
+            hover:bg-neutral-100 
+            transition 
+            cursor-pointer
+          "
+        >
+          Request Expert
+        </div>
         <div 
           onClick={onRent}
           className="
