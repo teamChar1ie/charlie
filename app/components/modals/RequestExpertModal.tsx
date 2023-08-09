@@ -73,9 +73,9 @@ const RequestExpertModal = () => {
     
     setIsLoading(true);
 
-    axios.post('/api/listings', data)
+    axios.post('/api/requests', data)
     .then(() => {
-      toast.success('Listing created!');
+      toast.success('Request Submitted!');
       router.refresh();
       reset();
       setStep(STEPS.CATEGORY)
