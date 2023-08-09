@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import Button from "./Button";
 import Heading from "./Heading";
 import RequestExpertModal from "./modals/RequestExpertModal";
+import ClientOnly from "./ClientOnly";
 
 interface EmptyStateProps {
   title?: string;
@@ -43,7 +44,9 @@ const EmptyState: React.FC<EmptyStateProps> = ({
             label="Remove all filters"
             onClick={() => router.push('/')}
             />
-            <RequestExpertModal />
+            <ClientOnly>
+              <RequestExpertModal />
+            </ClientOnly>
           </div>
         )}
       </div>

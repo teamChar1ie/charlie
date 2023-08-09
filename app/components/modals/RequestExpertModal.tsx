@@ -160,6 +160,7 @@ const RequestExpertModal = () => {
           errors={errors}
           required
         />
+        <hr />
         <Input
           id="moreinfo"
           label="Tell us more about your case"
@@ -167,7 +168,6 @@ const RequestExpertModal = () => {
           register={register}
           errors={errors}
         />
-        <hr />
       </div>
     )
   }
@@ -176,7 +176,7 @@ const RequestExpertModal = () => {
     <Modal
       disabled={isLoading}
       isOpen={requestExpertModal.isOpen}
-      title="Create Your Expert Profile!"
+      title="Request Expert"
       actionLabel={actionLabel}
       onSubmit={handleSubmit(onSubmit)}
       secondaryActionLabel={secondaryActionLabel}
