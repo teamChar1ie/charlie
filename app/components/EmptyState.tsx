@@ -49,6 +49,7 @@ const EmptyState: React.FC<EmptyStateProps> = ({
       <div className="w-48 mt-4">
         {showReset && (
           <ClientOnly>
+            <ToasterProvider />
             <RequestExpertModal />
           </ClientOnly>
         )}
