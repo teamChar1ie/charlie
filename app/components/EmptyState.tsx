@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 
 import Button from "./Button";
 import Heading from "./Heading";
+import RequestExpertModal from "./modals/RequestExpertModal";
 
 interface EmptyStateProps {
   title?: string;
@@ -13,7 +14,7 @@ interface EmptyStateProps {
 
 const EmptyState: React.FC<EmptyStateProps> = ({
   title = "No exact matches",
-  subtitle = "Try changing or removing some of your filters.",
+  subtitle = "Try changing or removing some of your filters or request an expert.",
   showReset
 }) => {
   const router = useRouter();
@@ -36,11 +37,14 @@ const EmptyState: React.FC<EmptyStateProps> = ({
       />
       <div className="w-48 mt-4">
         {showReset && (
-          <Button
+          <>
+            <Button
             outline
             label="Remove all filters"
             onClick={() => router.push('/')}
-          />
+            />
+            <RequestExpertModal />
+          </>
         )}
       </div>
     </div>

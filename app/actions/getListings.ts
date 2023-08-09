@@ -21,8 +21,6 @@ export default async function getListings(
       guestCount, 
       bathroomCount, 
       locationValue,
-      startDate,
-      endDate,
       category,
     } = params;
 
@@ -56,25 +54,6 @@ export default async function getListings(
 
     if (locationValue) {
       query.locationValue = locationValue;
-    }
-
-    if (startDate && endDate) {
-      query.NOT = {
-        reservations: {
-          some: {
-            OR: [
-              {
-                endDate: { gte: startDate },
-                startDate: { lte: startDate }
-              },
-              {
-                startDate: { lte: endDate },
-                endDate: { gte: endDate }
-              }
-            ]
-          }
-        }
-      }
     }
 
     const listings = await prisma.listing.findMany({
