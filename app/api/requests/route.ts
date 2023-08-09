@@ -26,7 +26,7 @@ export async function POST(
     }
   });
 
-  const expertrequest = await prisma.expertrequest.create({
+  const expertRequest = await prisma.expertRequest.create({
     data: {
       casetype,
       lawfirm,
@@ -36,5 +36,5 @@ export async function POST(
     }
   });
 
-  return NextResponse.json(expertrequest);
+  return NextResponse.json(expertRequest);
 }
