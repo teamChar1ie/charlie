@@ -37,14 +37,14 @@ const EmptyState: React.FC<EmptyStateProps> = ({
       />
       <div className="w-48 mt-4">
         {showReset && (
-          <>
+          <div>
             <Button
             outline
             label="Remove all filters"
             onClick={() => router.push('/')}
             />
             <RequestExpertModal />
-          </>
+          </div>
         )}
       </div>
     </div>
