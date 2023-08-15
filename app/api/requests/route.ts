@@ -40,9 +40,9 @@ export async function POST(
     'subject': `${currentUser.name} Requesting Expert`,
     'html': `<h1>Name: ${currentUser.name}</h1>
     Email: ${currentUser.email}
-    Case Type: ${casetype}
+    Case Type: ${casetype.value}
     Law Firm: ${lawfirm}
-    Speciality: ${category}
+    Speciality: ${category.value}
     More Info: ${moreinfo}`
   });
 
