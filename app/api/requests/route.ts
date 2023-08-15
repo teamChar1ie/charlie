@@ -35,17 +35,17 @@ export async function POST(
     from: "teamcharlie61@gmail.com",
     subject: `${currentUser.name} Requesting Expert`,
     html: `<h3>Name: ${currentUser.name}</h3>
-
-    <b>Email: ${currentUser.email}
-
+    <br />
+    <b>Email:</b> ${currentUser.email}
+    <br />
     <b>Case Type:</b> ${casetype.value}
-
+    <br />
     <b>Law Firm:</b> ${lawfirm}
-
+    <br />
     <b>Speciality:</b> ${category.value}
-
+    <br />
     <b>Phone Number:</b> ${phone}
-
+    <br />
     <b>More Info:</b> ${moreinfo}`,
   }
   sgMail
