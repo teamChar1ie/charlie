@@ -1,27 +1,26 @@
 'use client';
-
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useCallback, useMemo } from "react";
 import { format } from 'date-fns';
-
 import useCountries from "@/app/hooks/useCountries";
 import { 
   SafeListing, 
   SafeReservation, 
   SafeUser 
 } from "@/app/types";
-
 import Button from "../Button";
 import ClientOnly from "../ClientOnly";
-
 interface ListingCardProps {
   data: SafeListing;
   reservation?: SafeReservation;
   onAction?: (id: string) => void;
+  onAction2?: (id: string) => void;
   disabled?: boolean;
   actionLabel?: string;
   actionId?: string;
+  actionLabel2?: string;
+  actionId2?: string;
   currentUser?: SafeUser | null
 };
 
@@ -29,17 +28,27 @@ const ListingCard: React.FC<ListingCardProps> = ({
   data,
   reservation,
   onAction,
+  onAction2,
   disabled,
   actionLabel,
   actionId = '',
+  actionLabel2,
+  actionId2 = '',
   currentUser,
 }) => {
   const router = useRouter();
   const { getByValue } = useCountries();
-
   const location = getByValue(data.locationValue);
-
   const handleCancel = useCallback(
+    (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation();
+    if (disabled) {
+      return;
+    }
+    onAction?.(actionId)
+  }, [disabled, onAction, actionId]);
+
+  const handleCancel2 = useCallback(
     (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
 
@@ -47,17 +56,15 @@ const ListingCard: React.FC<ListingCardProps> = ({
       return;
     }
 
-    onAction?.(actionId)
-  }, [disabled, onAction, actionId]);
+    onAction2?.(actionId2)
+  }, [disabled, onAction2, actionId2]);
 
   const price = useMemo(() => {
     if (reservation) {
       return reservation.totalPrice;
     }
-
     return data.price;
   }, [reservation, data.price]);
-
   const reservationDate = useMemo(() => {
     if (!reservation) {
       return null;
@@ -65,10 +72,8 @@ const ListingCard: React.FC<ListingCardProps> = ({
   
     const start = new Date(reservation.startDate);
     const end = new Date(reservation.endDate);
-
     return `${format(start, 'PP')} - ${format(end, 'PP')}`;
   }, [reservation]);
-
   return (
     <div 
       onClick={() => router.push(`/listings/${data.id}`)} 
@@ -116,6 +121,14 @@ const ListingCard: React.FC<ListingCardProps> = ({
             disabled={disabled}
             small
             label={actionLabel} 
+            onClick={handleCancel}
+          />
+        )}
+        {onAction && actionLabel2 && (
+          <Button
+            disabled={disabled}
+            small
+            label={actionLabel2} 
             onClick={handleCancel}
           />
         )}

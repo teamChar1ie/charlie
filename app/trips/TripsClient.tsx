@@ -39,6 +39,22 @@ const TripsClient: React.FC<TripsClientProps> = ({
     })
   }, [router]);
 
+  const onReview = useCallback((id: string) => {
+    setDeletingId(id);
+
+    axios.delete(`/api/reservations/${id}`)
+    .then(() => {
+      toast.success('Terminated');
+      router.refresh();
+    })
+    .catch((error) => {
+      toast.error(error?.response?.data?.error)
+    })
+    .finally(() => {
+      setDeletingId('');
+    })
+  }, [router]);
+
   return (
     <Container>
       <Heading
@@ -64,9 +80,12 @@ const TripsClient: React.FC<TripsClientProps> = ({
             data={reservation.listing}
             reservation={reservation}
             actionId={reservation.id}
+            actionId2={reservation.id}
             onAction={onCancel}
+            onAction2={onReview}
             disabled={deletingId === reservation.id}
-            actionLabel="Cancel reservation"
+            actionLabel="Cancel job"
+            actionLabel2="Leave Review"
             currentUser={currentUser}
           />
         ))}
