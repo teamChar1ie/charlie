@@ -6,7 +6,7 @@ import RegisterModal from '@/app/components/modals/RegisterModal';
 import SearchModal from '@/app/components/modals/SearchModal';
 import RentModal from '@/app/components/modals/RentModal';
 import RequestExpertModal from '@/app/components/modals/RequestExpertModal';
-import ReviewModal from '@app/components/modals/ReviewModal';
+import ReviewModal from '@/app/components/modals/ReviewModal';
 
 import ToasterProvider from '@/app/providers/ToasterProvider';
 
