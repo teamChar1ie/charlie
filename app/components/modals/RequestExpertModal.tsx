@@ -17,6 +17,7 @@ import Input from '../inputs/Input';
 import Heading from '../Heading';
 import SpecialitySelect, { SpecialitySelectValue } from '../inputs/SpecialitySelect';
 import TextArea from '../inputs/TextArea';
+import CaseTypeSelect from '../inputs/CaseTypeSelect';
 
 
 const RequestExpertModal = () => {
@@ -87,7 +88,7 @@ const RequestExpertModal = () => {
           title="Give us information about your requirements"
           subtitle="Short works best!"
         />
-        <SpecialitySelect 
+        <CaseTypeSelect 
         value={casetype} 
         onChange={(value) => 
           setCustomValue('casetype', value.value)} 
