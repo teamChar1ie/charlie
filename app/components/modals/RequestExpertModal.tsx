@@ -16,7 +16,7 @@ import Modal from "./Modal";
 import Input from '../inputs/Input';
 import Heading from '../Heading';
 import SpecialitySelect, { SpecialitySelectValue } from '../inputs/SpecialitySelect';
-import TextArea from '../inputs/textArea';
+import TextArea from '../inputs/TextArea';
 
 
 const RequestExpertModal = () => {
