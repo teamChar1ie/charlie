@@ -37,9 +37,9 @@ const RequestExpertModal = () => {
     reset,
   } = useForm<FieldValues>({
     defaultValues: {
-      casetype: '',
+      casetype: null,
       lawfirm: '',
-      category: '',
+      category: null,
       moreinfo: ''
     }
   });
@@ -92,6 +92,7 @@ const RequestExpertModal = () => {
         value={casetype} 
         onChange={(value) => 
           setCustomValue('casetype', value)} 
+        required
         />
         <hr />
         <Input
@@ -107,6 +108,7 @@ const RequestExpertModal = () => {
         value={category} 
         onChange={(value) => 
           setCustomValue('category', value)} 
+        required
         />
         <hr />
         <div className="font-light text-neutral-500 mt-2">
