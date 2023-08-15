@@ -16,6 +16,7 @@ import Modal from "./Modal";
 import Input from '../inputs/Input';
 import Heading from '../Heading';
 import SpecialitySelect, { SpecialitySelectValue } from '../inputs/SpecialitySelect';
+import TextArea from '../inputs/textArea';
 
 
 const RequestExpertModal = () => {
@@ -43,6 +44,7 @@ const RequestExpertModal = () => {
   });
 
   const category = watch('category');
+  const casetype = watch('casetype');
 
   const setCustomValue = (id: string, value: any) => {
     setValue(id, value, {
@@ -85,13 +87,10 @@ const RequestExpertModal = () => {
           title="Give us information about your requirements"
           subtitle="Short works best!"
         />
-        <Input
-          id="casetype"
-          label="Case Type"
-          disabled={isLoading}
-          register={register}
-          errors={errors}
-          required
+        <SpecialitySelect 
+        value={casetype} 
+        onChange={(value) => 
+          setCustomValue('casetype', value.value)} 
         />
         <hr />
         <Input
@@ -112,7 +111,7 @@ const RequestExpertModal = () => {
         <div className="font-light text-neutral-500 mt-2">
         Tell us more about your case!
         </div>
-        <Input
+        <TextArea
           id="moreinfo"
           label=""
           disabled={isLoading}
