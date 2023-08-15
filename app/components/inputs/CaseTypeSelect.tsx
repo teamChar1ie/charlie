@@ -24,7 +24,7 @@ const CaseTypeSelect: React.FC<CaseTypeSelectProps> = ({
   return ( 
     <div>
       <Select
-        placeholder="Location"
+        placeholder="Case Type"
         isClearable
         options={getAll()}
         value={value}

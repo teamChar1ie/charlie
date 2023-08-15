@@ -9,7 +9,7 @@ var casetype = [
   
   const formattedCasetypes = casetype.map((casetype
     ) => ({
-      value: casetype.name,
+      value: casetype.name
     }));
   
   const useCasetypes = () => {
