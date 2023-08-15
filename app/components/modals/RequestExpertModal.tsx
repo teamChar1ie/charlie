@@ -106,12 +106,15 @@ const RequestExpertModal = () => {
         <SpecialitySelect 
         value={category} 
         onChange={(value) => 
-          setCustomValue('category', value)} 
+          setCustomValue('category', value.value)} 
         />
         <hr />
+        <div className="font-light text-neutral-500 mt-2">
+        Tell us more about your case!
+        </div>
         <Input
           id="moreinfo"
-          label="Tell us more about your case"
+          label=""
           disabled={isLoading}
           register={register}
           errors={errors}
