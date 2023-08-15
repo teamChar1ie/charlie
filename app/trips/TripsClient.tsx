@@ -4,6 +4,8 @@ import { toast } from "react-hot-toast";
 import axios from "axios";
 import { useCallback, useState } from "react";
 import { useRouter } from "next/navigation";
+import useLoginModal from "@/app/hooks/useLoginModal";
+import useReviewModal from "@/app/hooks/useReviewModal";
 
 import { SafeReservation, SafeUser } from "@/app/types";
 
@@ -21,6 +23,8 @@ const TripsClient: React.FC<TripsClientProps> = ({
   currentUser
 }) => {
   const router = useRouter();
+  const reviewModal = useReviewModal();
+  const loginModal = useLoginModal();
   const [deletingId, setDeletingId] = useState('');
 
   const onCancel = useCallback((id: string) => {
@@ -39,21 +43,13 @@ const TripsClient: React.FC<TripsClientProps> = ({
     })
   }, [router]);
 
-  const onReview = useCallback((id: string) => {
-    setDeletingId(id);
+  const onReview = useCallback(() => {
+    if (!currentUser) {
+      return loginModal.onOpen();
+    }
 
-    axios.delete(`/api/reservations/${id}`)
-    .then(() => {
-      toast.success('Terminated');
-      router.refresh();
-    })
-    .catch((error) => {
-      toast.error(error?.response?.data?.error)
-    })
-    .finally(() => {
-      setDeletingId('');
-    })
-  }, [router]);
+    reviewModal.onOpen();
+  }, [loginModal, reviewModal, currentUser]);
 
   return (
     <Container>
