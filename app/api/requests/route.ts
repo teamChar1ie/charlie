@@ -28,7 +28,7 @@ export async function POST(
 
   const expertRequest = await prisma.expertRequest.create({
     data: {
-      casetype: category.value,
+      casetype: casetype.value,
       lawfirm,
       category: category.value,
       moreinfo,
