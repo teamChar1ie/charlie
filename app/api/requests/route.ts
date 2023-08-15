@@ -34,19 +34,19 @@ export async function POST(
     to: "nmalik2@tepper.cmu.edu",
     from: "teamcharlie61@gmail.com",
     subject: `${currentUser.name} Requesting Expert`,
-    html: `<h1>Name: ${currentUser.name}</h1>
+    html: `<h3>Name: ${currentUser.name}</h3>
 
-    Email: ${currentUser.email}
+    <b>Email: ${currentUser.email}
 
-    Case Type: ${casetype.value}
+    <b>Case Type:</b> ${casetype.value}
 
-    Law Firm: ${lawfirm}
+    <b>Law Firm:</b> ${lawfirm}
 
-    Speciality: ${category.value}
+    <b>Speciality:</b> ${category.value}
 
-    Phone Number: ${phone}
-    
-    More Info: ${moreinfo}`,
+    <b>Phone Number:</b> ${phone}
+
+    <b>More Info:</b> ${moreinfo}`,
   }
   sgMail
     .send(msg)
