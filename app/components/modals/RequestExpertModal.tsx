@@ -85,12 +85,6 @@ const RequestExpertModal = () => {
           title="Give us information about your requirements"
           subtitle="Short works best!"
         />
-        <SpecialitySelect 
-        value={category} 
-        onChange={(value) => 
-          setCustomValue('category', value)} 
-        />
-        <hr />
         <Input
           id="casetype"
           label="Case Type"
@@ -107,6 +101,12 @@ const RequestExpertModal = () => {
           register={register}
           errors={errors}
           required
+        />
+        <hr />
+        <SpecialitySelect 
+        value={category} 
+        onChange={(value) => 
+          setCustomValue('category', value)} 
         />
         <hr />
         <Input
