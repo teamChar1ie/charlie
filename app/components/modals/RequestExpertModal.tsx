@@ -17,18 +17,15 @@ import CategoryInput from '../inputs/CategoryInput';
 import { categories } from '../navbar/Categories';
 import Input from '../inputs/Input';
 import Heading from '../Heading';
+import SpecialitySelect, { SpecialitySelectValue } from '../inputs/SpecialitySelect';
 
-enum STEPS {
-    CATEGORY = 0,
-    DESCRIPTION = 1,
-  }
 
 const RequestExpertModal = () => {
   const router = useRouter();
   const requestExpertModal = useRequestExpertModal();
 
   const [isLoading, setIsLoading] = useState(false);
-  const [step, setStep] = useState(STEPS.CATEGORY);
+  const [category, setSpeciality] = useState<SpecialitySelectValue>();
 
   const { 
     register, 
@@ -48,8 +45,6 @@ const RequestExpertModal = () => {
     }
   });
 
-  const category = watch('category');
-
   const setCustomValue = (id: string, value: any) => {
     setValue(id, value, {
       shouldDirty: true,
@@ -58,18 +53,7 @@ const RequestExpertModal = () => {
     })
   }
 
-  const onBack = () => {
-    setStep((value) => value - 1);
-  }
-
-  const onNext = () => {
-    setStep((value) => value + 1);
-  }
-
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
-    if (step !== STEPS.DESCRIPTION) {
-      return onNext();
-    }
     
     setIsLoading(true);
 
@@ -78,7 +62,6 @@ const RequestExpertModal = () => {
       toast.success('Request Submitted!');
       router.refresh();
       reset();
-      setStep(STEPS.CATEGORY)
       requestExpertModal.onClose();
     })
     .catch(() => {
@@ -90,59 +73,25 @@ const RequestExpertModal = () => {
   }
 
   const actionLabel = useMemo(() => {
-    if (step === STEPS.DESCRIPTION) {
-      return 'Request'
-    }
-
-    return 'Next'
-  }, [step]);
+    return 'Request'
+  }, []);
 
   const secondaryActionLabel = useMemo(() => {
-    if (step === STEPS.CATEGORY) {
-      return undefined
-    }
-
-    return 'Back'
-  }, [step]);
+    return undefined
+  }, []);
 
   let bodyContent = (
-    <div className="flex flex-col gap-8">
-      <Heading
-        title="Which of these best describes your speciality?"
-        subtitle="Pick a category"
-      />
-      <div 
-        className="
-          grid 
-          grid-cols-1 
-          md:grid-cols-2 
-          gap-3
-          max-h-[50vh]
-          overflow-y-auto
-        "
-      >
-        {categories.map((item) => (
-          <div key={item.label} className="col-span-1">
-            <CategoryInput
-              onClick={(category) => 
-                setCustomValue('category', category)}
-              selected={category === item.label}
-              label={item.label}
-              icon={item.icon}
-            />
-          </div>
-        ))}
-      </div>
-    </div>
-  )
-
-  if (step === STEPS.DESCRIPTION) {
-    bodyContent = (
       <div className="flex flex-col gap-8">
         <Heading
           title="Give us more information about your requirements"
           subtitle="Short works best!"
         />
+        <SpecialitySelect 
+        value={category} 
+        onChange={(value) => 
+          setSpeciality(value as SpecialitySelectValue)} 
+        />
+        <hr />
         <Input
           id="casetype"
           label="Case Type"
@@ -170,7 +119,6 @@ const RequestExpertModal = () => {
         />
       </div>
     )
-  }
 
   return (
     <Modal
@@ -180,7 +128,7 @@ const RequestExpertModal = () => {
       actionLabel={actionLabel}
       onSubmit={handleSubmit(onSubmit)}
       secondaryActionLabel={secondaryActionLabel}
-      secondaryAction={step === STEPS.CATEGORY ? undefined : onBack}
+      secondaryAction={undefined}
       onClose={requestExpertModal.onClose}
       body={bodyContent}
     />
