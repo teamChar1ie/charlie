@@ -91,7 +91,7 @@ const RequestExpertModal = () => {
         <CaseTypeSelect 
         value={casetype} 
         onChange={(value) => 
-          setCustomValue('casetype', value.value)} 
+          setCustomValue('casetype', value)} 
         />
         <hr />
         <Input
@@ -106,7 +106,7 @@ const RequestExpertModal = () => {
         <SpecialitySelect 
         value={category} 
         onChange={(value) => 
-          setCustomValue('category', value.value)} 
+          setCustomValue('category', value)} 
         />
         <hr />
         <div className="font-light text-neutral-500 mt-2">
