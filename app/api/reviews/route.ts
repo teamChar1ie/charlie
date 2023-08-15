@@ -26,7 +26,7 @@ export async function POST(
    if (!professionalCompetence || !reliability || !interpersonalSkills || !trustworthiness || !overallImage) {
     return NextResponse.error();
   }
-
+  
   const listingAndReview = await prisma.listing.update({
     where: {
       id: '64db929f5fcf814d215d7481'
