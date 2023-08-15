@@ -14,7 +14,6 @@ export async function POST(
 
   const body = await request.json();
   const { 
-    reviewerId,
     userId,
     professionalCompetence,
     reliability,
@@ -24,7 +23,7 @@ export async function POST(
     briefStatement
    } = body;
 
-   if (!reviewerId || !professionalCompetence || !reliability || !interpersonalSkills || !trustworthiness || !overallImage) {
+   if (!userId || !professionalCompetence || !reliability || !interpersonalSkills || !trustworthiness || !overallImage) {
     return NextResponse.error();
   }
 
