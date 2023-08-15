@@ -19,6 +19,7 @@ export async function POST(
     casetype,
     lawfirm,
     category,
+    phone,
     moreinfo
    } = body;
 
@@ -38,6 +39,7 @@ export async function POST(
     Case Type: ${casetype.value}
     Law Firm: ${lawfirm}
     Speciality: ${category.value}
+    Phone Number: ${phone}
     More Info: ${moreinfo}`,
   }
   sgMail
@@ -52,6 +54,7 @@ export async function POST(
       lawfirm,
       category: category.value,
       moreinfo,
+      phoneNumber: parseInt(phone, 10),
       userId: currentUser.id
     }
   });

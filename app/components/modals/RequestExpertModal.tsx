@@ -40,7 +40,8 @@ const RequestExpertModal = () => {
       casetype: null,
       lawfirm: '',
       category: null,
-      moreinfo: ''
+      moreinfo: '',
+      phone: 0
     }
   });
 
@@ -94,7 +95,6 @@ const RequestExpertModal = () => {
           setCustomValue('casetype', value)} 
         required
         />
-        <hr />
         <div className="font-light text-neutral-500 mt-2">
         Law Firm
         </div>
@@ -113,7 +113,18 @@ const RequestExpertModal = () => {
           setCustomValue('category', value)} 
         required
         />
-        <hr />
+        <div className="font-light text-neutral-500 mt-2">
+        Phone Number
+        </div>
+        <Input
+          id="phone"
+          label=""
+          type='number'
+          disabled={isLoading}
+          register={register}
+          errors={errors}
+          required
+        />
         <div className="font-light text-neutral-500 mt-2">
         Tell us more about your case!
         </div>

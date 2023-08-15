@@ -68,6 +68,9 @@ var specialities = [
     {
         name: "Mass Tort"
     },
+    {
+        name: "Criminal Defense"
+    },
   ]
   
   const formattedSpecialities = specialities.map((speciality
