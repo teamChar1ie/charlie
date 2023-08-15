@@ -43,7 +43,6 @@ const ReviewModal = () => {
         briefStatement: ''
     }
   });
-
     const professionalCompetence = watch('professionalCompetence');
     const reliability= watch('reliability');
     const interpersonalSkills= watch('interpersonalSkills');

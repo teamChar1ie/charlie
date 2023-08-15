@@ -43,7 +43,7 @@ const TripsClient: React.FC<TripsClientProps> = ({
     })
   }, [router]);
 
-  const onReview = useCallback(() => {
+  const onReview = useCallback((id: string) => {
     if (!currentUser) {
       return loginModal.onOpen();
     }
