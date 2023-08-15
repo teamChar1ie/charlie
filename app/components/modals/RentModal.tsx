@@ -20,6 +20,7 @@ import { categories } from '../navbar/Categories';
 import ImageUpload from '../inputs/ImageUpload';
 import Input from '../inputs/Input';
 import Heading from '../Heading';
+import TextArea from '../inputs/TextArea';
 
 enum STEPS {
   CATEGORY = 0,
@@ -236,7 +237,7 @@ const RentModal = () => {
           required
         />
         <hr />
-        <Input
+        <TextArea
           id="description"
           label="Your Domains of Expertise"
           disabled={isLoading}
