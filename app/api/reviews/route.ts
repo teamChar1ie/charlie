@@ -14,7 +14,7 @@ export async function POST(
 
   const body = await request.json();
   const { 
-    userId,
+    listingId,
     professionalCompetence,
     reliability,
     interpersonalSkills,
@@ -23,18 +23,18 @@ export async function POST(
     briefStatement
    } = body;
 
-   if (!userId || !professionalCompetence || !reliability || !interpersonalSkills || !trustworthiness || !overallImage) {
+   if (!listingId || !professionalCompetence || !reliability || !interpersonalSkills || !trustworthiness || !overallImage) {
     return NextResponse.error();
   }
 
-  const listingAndReservation = await prisma.user.update({
+  const listingAndReservation = await prisma.listing.update({
     where: {
-      id: userId
+      id: listingId
     },
     data: {
       reviews: {
         create: {
-          reviewerId: currentUser.id,
+          userId: currentUser.id,
           professionalCompetence,
           reliability,
           interpersonalSkills,

@@ -63,6 +63,7 @@ model Listing {
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
   reservations Reservation[]
+  reviews Review[]
 }
 
 model Reservation {
@@ -81,7 +82,7 @@ model Reservation {
 model Review {
   id String @id @default(auto()) @map("_id") @db.ObjectId
   userId String @db.ObjectId
-  reviewerId String
+  listingId String @db.ObjectId 
   professionalCompetence Int
   reliability Int
   interpersonalSkills Int
@@ -90,6 +91,7 @@ model Review {
   briefStatement String? 
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  listing Listing @relation(fields: [listingId], references: [id], onDelete: Cascade)
 }
 
 model ExpertRequest {

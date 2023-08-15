@@ -99,7 +99,6 @@ const ReviewModal = () => {
           title="Professional Competence"
           subtitle="Out of 5"
         />
-        <hr />
         <Counter 
           onChange={(value) => {
             setCustomValue('reliability', value)
@@ -108,7 +107,6 @@ const ReviewModal = () => {
           title="Reliability"
           subtitle="Out of 5"
         />
-        <hr />
         <Counter 
           onChange={(value) => {
             setCustomValue('interpersonalSkills', value)
@@ -117,7 +115,6 @@ const ReviewModal = () => {
           title="Interpersonal Skills"
           subtitle="Out of 5"
         />
-        <hr />
         <Counter 
           onChange={(value) => {
             setCustomValue('trustworthiness', value)
@@ -126,7 +123,6 @@ const ReviewModal = () => {
           title="Trustworthiness"
           subtitle="Out of 5"
         />
-        <hr />
         <Counter 
           onChange={(value) => {
             setCustomValue('overallImage', value)
@@ -135,10 +131,9 @@ const ReviewModal = () => {
           title="Overall Image"
           subtitle="Out of 5"
         />
-        <hr />
         <TextArea
           id="briefStatement"
-          label=""
+          label="Brief statement about the expert witness's performance"
           disabled={isLoading}
           register={register}
           errors={errors}
@@ -150,7 +145,7 @@ const ReviewModal = () => {
     <Modal
       disabled={isLoading}
       isOpen={reviewModal.isOpen}
-      title="Provide Review"
+      title="Submit Review"
       actionLabel={actionLabel}
       onSubmit={handleSubmit(onSubmit)}
       secondaryActionLabel={secondaryActionLabel}

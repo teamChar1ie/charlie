@@ -76,7 +76,7 @@ const TripsClient: React.FC<TripsClientProps> = ({
             data={reservation.listing}
             reservation={reservation}
             actionId={reservation.id}
-            actionId2={reservation.user.id}
+            actionId2={reservation.id}
             onAction={onCancel}
             onAction2={onReview}
             disabled={deletingId === reservation.id}
