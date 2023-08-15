@@ -13,8 +13,6 @@ import { useMemo, useState } from "react";
 import useRequestExpertModal from '@/app/hooks/useRequestExpertModal';
 
 import Modal from "./Modal";
-import CategoryInput from '../inputs/CategoryInput';
-import { categories } from '../navbar/Categories';
 import Input from '../inputs/Input';
 import Heading from '../Heading';
 import SpecialitySelect, { SpecialitySelectValue } from '../inputs/SpecialitySelect';
@@ -25,7 +23,6 @@ const RequestExpertModal = () => {
   const requestExpertModal = useRequestExpertModal();
 
   const [isLoading, setIsLoading] = useState(false);
-  const [category, setSpeciality] = useState<SpecialitySelectValue>();
 
   const { 
     register, 
@@ -44,6 +41,8 @@ const RequestExpertModal = () => {
       moreinfo: ''
     }
   });
+
+  const category = watch('category');
 
   const setCustomValue = (id: string, value: any) => {
     setValue(id, value, {
@@ -83,13 +82,13 @@ const RequestExpertModal = () => {
   let bodyContent = (
       <div className="flex flex-col gap-8">
         <Heading
-          title="Give us more information about your requirements"
+          title="Give us information about your requirements"
           subtitle="Short works best!"
         />
         <SpecialitySelect 
         value={category} 
         onChange={(value) => 
-          setSpeciality(value as SpecialitySelectValue)} 
+          setCustomValue('category', value)} 
         />
         <hr />
         <Input
