@@ -23,7 +23,7 @@ export async function POST(
     briefStatement
    } = body;
 
-   if (!listingId || !professionalCompetence || !reliability || !interpersonalSkills || !trustworthiness || !overallImage) {
+   if (!professionalCompetence || !reliability || !interpersonalSkills || !trustworthiness || !overallImage) {
     return NextResponse.error();
   }
 
