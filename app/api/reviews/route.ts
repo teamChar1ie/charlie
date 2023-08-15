@@ -29,7 +29,7 @@ export async function POST(
   
   const listingAndReview = await prisma.listing.update({
     where: {
-      id: '64db929f5fcf814d215d7481'
+      id: '64db929f5fcf814d215d7481' 
     },
     data: {
       reviews: {
