@@ -17,7 +17,7 @@ import Input from '../inputs/Input';
 import Heading from '../Heading';
 import SpecialitySelect, { SpecialitySelectValue } from '../inputs/SpecialitySelect';
 import TextArea from '../inputs/TextArea';
-import CaseTypeSelect from '../inputs/CaseTypeSelect';
+import CaseTypeSelect, { CaseTypeSelectValue } from '../inputs/CaseTypeSelect';
 
 
 const RequestExpertModal = () => {
