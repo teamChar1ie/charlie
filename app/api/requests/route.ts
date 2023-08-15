@@ -35,7 +35,6 @@ export async function POST(
     from: "teamcharlie61@gmail.com",
     subject: `${currentUser.name} Requesting Expert`,
     html: `<h3>Name: ${currentUser.name}</h3>
-    <br />
     <b>Email:</b> ${currentUser.email}
     <br />
     <b>Case Type:</b> ${casetype.value}
