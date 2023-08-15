@@ -34,10 +34,7 @@ const CaseTypeSelect: React.FC<CaseTypeSelectProps> = ({
           <div className="
           flex flex-row items-center gap-3">
             <div>
-              {option.value},
-              <span className="text-neutral-500 ml-1">
-                {option.label}
-              </span>
+              {option.value}
             </div>
           </div>
         )}

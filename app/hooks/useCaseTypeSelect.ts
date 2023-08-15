@@ -1,4 +1,4 @@
-var casetype = [
+var casetypes = [
     {
         name: "Plaintiff"
     },
@@ -7,7 +7,7 @@ var casetype = [
     },
   ]
   
-  const formattedCasetypes = casetype.map((casetype
+  const formattedCasetypes = casetypes.map((casetype
     ) => ({
       value: casetype.name
     }));
