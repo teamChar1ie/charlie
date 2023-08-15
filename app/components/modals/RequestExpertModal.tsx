@@ -95,9 +95,12 @@ const RequestExpertModal = () => {
         required
         />
         <hr />
+        <div className="font-light text-neutral-500 mt-2">
+        Law Firm
+        </div>
         <Input
           id="lawfirm"
-          label="Law Firm"
+          label=""
           disabled={isLoading}
           register={register}
           errors={errors}
