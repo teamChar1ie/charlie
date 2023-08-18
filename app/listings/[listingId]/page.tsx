@@ -18,8 +18,7 @@ const ListingPage = async ({ params }: { params: IParams }) => {
   const listing = await getListingById(params);
   const reservations = await getReservations(params);
   const currentUser = await getCurrentUser();
-  "const reviews = await getReviews( params );"
-  const reviews: any[] = [];
+  const reviews = await getReviews( params );
 
   if (!listing) {
     return (
