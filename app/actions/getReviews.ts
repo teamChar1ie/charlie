@@ -1,4 +1,5 @@
 import prisma from "@/app/libs/prismadb";
+import { SafeReview } from "../types";
 
 interface IParams {
     listingId?: string;
@@ -33,7 +34,7 @@ export default async function getReviews(
       }
     });
 
-    const safeReviews = reviews.map(
+    const safeReviews : SafeReview[] = reviews.map(
       (review) => ({
       ...review,
       professionalCompetence: review.professionalCompetence,
