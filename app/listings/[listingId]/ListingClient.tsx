@@ -174,7 +174,8 @@ const ListingClient: React.FC<ListingClientProps> = ({
             "
           >
             {reviews.map((review: any) => (
-              <ReviewBox
+              <>
+                <ReviewBox
                 key={review.id}
                 professionalCompetence={review.professionalCompetence}
                 reliability={review.reliability}
@@ -182,7 +183,9 @@ const ListingClient: React.FC<ListingClientProps> = ({
                 trustworthiness={review.trustworthiness}
                 overallImage={review.overallImage}
                 briefStatement={review.briefStatement}
-              />
+                />
+                <br />
+              </>
             ))}
           </div>
         </div>

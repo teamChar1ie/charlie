@@ -1,5 +1,7 @@
 'use client';
 
+import Container from "./Container";
+
 interface ReviewBoxProps {
     professionalCompetence: number,
     reliability: number;
@@ -27,18 +29,29 @@ const ReviewBox: React.FC<ReviewBoxProps> = ({
         px-4
       "
     >
-    Professional Competence: {professionalCompetence}
+    <Container>
+        Professional Competence: {professionalCompetence}/5
+    </Container>
 
-    Reliability:  {reliability}
+    <Container>
+        Reliability:  {reliability}/5
+    </Container>
 
-    Interpersonal Skills:  {interpersonalSkills}
+    <Container>
+    Interpersonal Skills:  {interpersonalSkills}/5
+    </Container>
 
-    Trustworthiness:  {trustworthiness}
+    <Container>
+    Trustworthiness:  {trustworthiness}/5
+    </Container>
 
-    Overall Image:  {overallImage}
+    <Container>
+    Overall Image:  {overallImage}/5
+    </Container>
 
-    Brief Statement:  {briefStatement}
-
+    <Container>
+    Brief Statement:  {briefStatement}    
+    </Container>
     </div>
    );
 }
