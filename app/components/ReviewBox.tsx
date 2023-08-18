@@ -27,17 +27,17 @@ const ReviewBox: React.FC<ReviewBoxProps> = ({
         px-4
       "
     >
-    Professional Competence: ${professionalCompetence}
+    Professional Competence: {professionalCompetence}
 
-    Reliability:  ${reliability}
+    Reliability:  {reliability}
 
-    Interpersonal Skills:  ${interpersonalSkills}
+    Interpersonal Skills:  {interpersonalSkills}
 
-    Trustworthiness:  ${trustworthiness}
+    Trustworthiness:  {trustworthiness}
 
-    Overall Image:  ${overallImage}
+    Overall Image:  {overallImage}
 
-    Brief Statement:  ${briefStatement}
+    Brief Statement:  {briefStatement}
 
     </div>
    );

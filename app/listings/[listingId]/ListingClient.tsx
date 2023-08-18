@@ -8,13 +8,14 @@ import { useRouter } from "next/navigation";
 import { differenceInDays, eachDayOfInterval } from 'date-fns';
 
 import useLoginModal from "@/app/hooks/useLoginModal";
-import { SafeListing, SafeReservation, SafeUser } from "@/app/types";
+import { SafeListing, SafeReservation, SafeReview, SafeUser } from "@/app/types";
 
 import Container from "@/app/components/Container";
 import { categories } from "@/app/components/navbar/Categories";
 import ListingHead from "@/app/components/listings/ListingHead";
 import ListingInfo from "@/app/components/listings/ListingInfo";
 import ListingReservation from "@/app/components/listings/ListingReservation";
+import ReviewBox from "@/app/components/ReviewBox";
 
 const initialDateRange = {
   startDate: new Date(),
@@ -24,6 +25,7 @@ const initialDateRange = {
 
 interface ListingClientProps {
   reservations?: SafeReservation[];
+  reviews?: SafeReview[];
   listing: SafeListing & {
     user: SafeUser;
   };
@@ -33,6 +35,7 @@ interface ListingClientProps {
 const ListingClient: React.FC<ListingClientProps> = ({
   listing,
   reservations = [],
+  reviews = [],
   currentUser
 }) => {
   const loginModal = useLoginModal();
@@ -162,6 +165,25 @@ const ListingClient: React.FC<ListingClientProps> = ({
                 disabledDates={disabledDates}
               />
             </div>
+          </div>
+          <div 
+            className="
+              mt-10
+              rows
+              gap-8
+            "
+          >
+            {reviews.map((review: any) => (
+              <ReviewBox
+                key={review.id}
+                professionalCompetence={review.professionalCompetence}
+                reliability={review.reliability}
+                interpersonalSkills={review.interpersonalSkills}
+                trustworthiness={review.trustworthiness}
+                overallImage={review.overallImage}
+                briefStatement={review.briefStatement}
+              />
+            ))}
           </div>
         </div>
       </div>
