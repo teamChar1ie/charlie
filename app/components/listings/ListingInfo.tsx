@@ -4,10 +4,13 @@ import dynamic from "next/dynamic";
 import { IconType } from "react-icons";
 
 import useCountries from "@/app/hooks/useCountries";
-import { SafeUser } from "@/app/types";
+import { SafeUser, SafeReview} from "@/app/types";
 
 import Avatar from "../Avatar";
 import ListingCategory from "./ListingCategory";
+import getReviews from "@/app/actions/getReviews";
+import { useEffect } from "react";
+import ReviewBox from "@/app/components/ReviewBox";
 
 const Map = dynamic(() => import('../Map'), { 
   ssr: false 
@@ -15,6 +18,7 @@ const Map = dynamic(() => import('../Map'), {
 
 interface ListingInfoProps {
   user: SafeUser,
+  reviews?: SafeReview[],
   description: string;
   guestCount: number;
   roomCount: number;
@@ -29,6 +33,7 @@ interface ListingInfoProps {
 
 const ListingInfo: React.FC<ListingInfoProps> = ({
   user,
+  reviews = [],
   description,
   guestCount,
   roomCount,
@@ -39,6 +44,18 @@ const ListingInfo: React.FC<ListingInfoProps> = ({
   const { getByValue } = useCountries();
 
   const coordinates = getByValue(locationValue)?.latlng
+
+  useEffect(() => {
+    const fetchReviews = async () => {
+      const reviews = await getReviews({ userId: user.id });
+
+      return reviews;
+    }
+
+    fetchReviews();
+  })
+
+
 
   return ( 
     <div className="col-span-4 flex flex-col gap-8">
@@ -53,7 +70,7 @@ const ListingInfo: React.FC<ListingInfoProps> = ({
             gap-2
           "
         >
-          <div>Hosted by {user?.name}</div>
+          <div>{user?.name}</div>
           <Avatar src={user?.image} />
         </div>
         <div className="
@@ -88,6 +105,31 @@ const ListingInfo: React.FC<ListingInfoProps> = ({
       </div>
       <hr />
       <Map center={coordinates} />
+      <div 
+        className="
+          mt-10
+          grid 
+          grid-cols-1 
+          sm:grid-cols-2 
+          md:grid-cols-3 
+          lg:grid-cols-4
+          xl:grid-cols-5
+          2xl:grid-cols-6
+          gap-8
+        "
+      >
+        {reviews.map((review: any) => (
+          <ReviewBox
+            key={review.id}
+            professionalCompetence={review.professionalCompetence}
+            reliability={review.reliability}
+            interpersonalSkills={review.interpersonalSkills}
+            trustworthiness={review.trustworthiness}
+            overallImage={review.overallImage}
+            briefStatement={review.briefStatement}
+          />
+        ))}
+      </div>
     </div>
    );
 }

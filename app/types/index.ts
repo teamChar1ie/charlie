@@ -14,6 +14,19 @@ export type SafeReservation = Omit<
   listing: SafeListing;
 };
 
+export type SafeReview = Omit<
+  Review, 
+  'professionalCompetence' | 'reliability' | 'interpersonalSkills' | 'trustworthiness' | 'overallImage' | 'briefStatement' | "listing"
+> & {
+  professionalCompetence: number;
+  reliability: number;
+  interpersonalSkills: number;
+  trustworthiness: number;
+  overallImage: number; 
+  briefStatement: string;
+  listing: SafeListing;
+};
+
 export type SafeUser = Omit<
   User,
   "createdAt" | "updatedAt" | "emailVerified"
