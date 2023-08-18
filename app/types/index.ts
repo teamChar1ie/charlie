@@ -16,7 +16,7 @@ export type SafeReservation = Omit<
 
 export type SafeReview = Omit<
   Review, 
-  'professionalCompetence' | 'reliability' | 'interpersonalSkills' | 'trustworthiness' | 'overallImage' | 'briefStatement' | "listing"
+  'professionalCompetence' | 'reliability' | 'interpersonalSkills' | 'trustworthiness' | 'overallImage' | 'briefStatement'
 > & {
   professionalCompetence: number;
   reliability: number;
@@ -24,7 +24,6 @@ export type SafeReview = Omit<
   trustworthiness: number;
   overallImage: number; 
   briefStatement: string;
-  listing: SafeListing;
 };
 
 export type SafeUser = Omit<
