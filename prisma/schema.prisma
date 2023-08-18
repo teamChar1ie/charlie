@@ -88,7 +88,7 @@ model Review {
   interpersonalSkills Int
   trustworthiness Int
   overallImage Int 
-  briefStatement String? 
+  briefStatement String
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
   listing Listing @relation(fields: [listingId], references: [id], onDelete: Cascade)
