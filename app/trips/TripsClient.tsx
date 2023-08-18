@@ -48,7 +48,7 @@ const TripsClient: React.FC<TripsClientProps> = ({
       return loginModal.onOpen();
     }
 
-    reviewModal.onOpen();
+    reviewModal.onOpen(id);
   }, [loginModal, reviewModal, currentUser]);
 
   return (

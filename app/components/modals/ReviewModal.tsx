@@ -48,6 +48,7 @@ const ReviewModal = () => {
     const interpersonalSkills= watch('interpersonalSkills');
     const trustworthiness= watch('trustworthiness');
     const overallImage= watch('overallImage');
+    const listingId = reviewModal.expertId;
 
   const setCustomValue = (id: string, value: any) => {
     setValue(id, value, {
@@ -61,7 +62,7 @@ const ReviewModal = () => {
     
     setIsLoading(true);
 
-    axios.post('/api/reviews', data)
+    axios.post('/api/reviews', {...data, listingId})
     .then(() => {
       toast.success('Review Submitted!');
       router.refresh();
