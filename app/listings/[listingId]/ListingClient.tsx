@@ -16,6 +16,7 @@ import ListingHead from "@/app/components/listings/ListingHead";
 import ListingInfo from "@/app/components/listings/ListingInfo";
 import ListingReservation from "@/app/components/listings/ListingReservation";
 import ReviewBox from "@/app/components/ReviewBox";
+import Heading from "@/app/components/Heading";
 
 const initialDateRange = {
   startDate: new Date(),
@@ -166,6 +167,7 @@ const ListingClient: React.FC<ListingClientProps> = ({
               />
             </div>
           </div>
+          <Heading title={"Reviews"} />
           <div 
             className="
               mt-10
